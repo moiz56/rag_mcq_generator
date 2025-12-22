@@ -88,7 +88,3 @@ npm start
 * Ensure that the `.env` file is located at the same level as the `mcqs_rag` folder.
 * The frontend communicates with the backend via API endpoints exposed by FastAPI. Update the API URL in the frontend if necessary.
 
-```
-
-I can also add sections for **Usage**, **Deployment**, and **License** if you want a more complete professional README. Do you want me to do that?
-```
