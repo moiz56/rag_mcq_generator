@@ -1,0 +1,9 @@
+dotenv
+sentence_transformers
+google-genai
+pytorch==2.6.0
+torchvision 
+torchaudio
+safetensors
+fastapi
+uvicorn
