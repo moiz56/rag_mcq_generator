@@ -18,6 +18,7 @@
 
 # env files
 /frontend/.env*
+/.env
 
 # vercel
 /frontend/.vercel
@@ -32,3 +33,6 @@
 /mcqs_rag/.env
 /mcqs_rag/embeddings
 /mcqs_rag/chunks
+/mcqs_rag/venv
+**/__pycache__/
+*.pyc

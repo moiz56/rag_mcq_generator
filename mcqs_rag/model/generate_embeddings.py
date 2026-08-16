@@ -1,4 +1,5 @@
 import json
+import os
 import argparse
 from tqdm import tqdm
 from pathlib import Path
@@ -38,6 +39,12 @@ def main():
         required=True,
         help="Path to the chunks JSON or JSONL file."
     )
+    parser.add_argument(
+        "--output",
+        type=str,
+        default="embeddings/math11.json",
+        help="Path to write the embedded chunks JSON file."
+    )
 
     args = parser.parse_args()
     chunks_path = Path(args.chunks)
@@ -50,8 +57,15 @@ def main():
     chunks = load_chunks(chunks_path)
 
     model = load_model()
-    
-    chunks = embed_chunks(chunks,model)
+
+    chunks = embed_chunks(chunks, model)
+
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(chunks, f, ensure_ascii=False)
+
+    print(f"Saved {len(chunks)} embedded chunks to: {output_path}")
 
 
 if __name__ == "__main__":
